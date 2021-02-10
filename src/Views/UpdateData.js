@@ -51,10 +51,26 @@ export default class UpdateData extends Component {
         const {book} =this.state
         return (
            
+            <div class="mainContainer">
+                <div class="nav-bar">
+                 <a class="active" href="#home">Library</a>
+                  <a>
+                  <Link  to="/save">Add Books</Link>
+                  </a>
+                  <div class="search-container">
+                  <input  id="searchbox" type="text" placeholder="Search.." 
+                  name="search" 
+                  value={this.state.title} 
+                  onChange={this.changeHandle}
+                />
+
+                  </div>
+                </div>
+
             <form onSubmit= {this.submitHandler}>
-            <div className="main-contaier">
             
             <div className="s"> 
+            <h2>Update books</h2>
             <div class="form-group">
            <div class="row">
                <label>Title</label>
@@ -82,10 +98,12 @@ export default class UpdateData extends Component {
                <div class="col"><input type="text" className="form-control"  name="isbn" value={book.isbn} onChange={this.changeHandle}/></div>
                 </div>        	
            </div>
+           <button class="btn-save-update" type="submit">Update</button>
             </div>  
-              <button type="submit">Update</button>
+              
+              </form>
            </div>
-           </form>
+           
                        )
     }
 }

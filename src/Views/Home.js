@@ -84,19 +84,23 @@ export default class Home extends Component {
     render() {
         return (
             <div class="mainContainer">
-             <div>
-             
-             </div>  
-
-               <div id="addbutoon"><Link  to="/save">Add Books</Link></div>
-                <input id="searchbox" type="text" placeholder="Search.." 
-                name="search" 
-                value={this.state.title} 
-                onChange={this.changeHandle}
+                <div class="nav-bar">
+                 <a class="active" href="#home">Library</a>
+                  <a>
+                  <Link  to="/save">Add Books</Link>
+                  </a>
+                  <div class="search-container">
+                  <input  id="searchbox" type="text" placeholder="Search.." 
+                  name="search" 
+                  value={this.state.title} 
+                  onChange={this.changeHandle}
                 />
 
-                <table  align="center" className="table-bar">
-                    <thead className="thead-dark">
+                  </div>
+                </div>
+   
+                <table  id="thead-dark" align="center" className="table-bar">
+                    <thead >
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Book Name</th>
@@ -113,8 +117,8 @@ export default class Home extends Component {
                                 <td>{booksLists.author}</td>
                                 <td>{booksLists.p_date}</td>
                                 <td>
-                                    <button onClick={() => this.handleClickEvent(booksLists.book_id)}>Delete</button>
-                                    <button onClick={() => this.handleClickEventU(booksLists.book_id)}>Update</button>
+                                    <button class="btn-delete" onClick={() => this.handleClickEvent(booksLists.book_id)}>Delete</button>
+                                    <button class="btn-update" onClick={() => this.handleClickEventU(booksLists.book_id)}>Update</button>
                                 </td>
                             </tr>           
                         ))}

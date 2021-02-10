@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Router } from 'react-router-dom';
+import '../CSS/list.css'
 
 export default class SavaData extends Component {
 
@@ -44,11 +45,28 @@ export default class SavaData extends Component {
     render() {
         const {title, author, isbn, p_date} =this.state
         return (
-           
+
+          <div class="mainContainer">
             <form onSubmit= {this.submitHandler}>
-            <div className="main-contaier">
             
+            <div class="nav-bar">
+                 <a class="active" href="#home">Library</a>
+                  <a>
+                  <Link  to="/save">Add Books</Link>
+                  </a>
+                  <div class="search-container">
+                  <input  id="searchbox" type="text" placeholder="Search.." 
+                  name="search" 
+                  value={this.state.title} 
+                  onChange={this.changeHandle}
+                />
+
+                  </div>
+                </div>
+
             <div className="s"> 
+            <h2>Add new books</h2>
+
             <div class="form-group">
            <div class="row">
                <label>Title</label>
@@ -76,10 +94,14 @@ export default class SavaData extends Component {
                <div class="col"><input type="text" className="form-control"  name="isbn" value={isbn} onChange={this.changeHandle}/></div>
                 </div>        	
            </div>
+           <br></br>
+           <button class ="btn-save" type="submit">Submit</button>
             </div>  
-              <button type="submit">Submit</button>
-           </div>
-           </form>
+              
+          
+              </form>
+             </div>
+          
                        )
     }
 }
